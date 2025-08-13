@@ -566,21 +566,49 @@ const produtos = [
 ];
 
 // Elementos do DOM
-const produtosContainer = document.getElementById('produtosContainer');
-const modal = document.getElementById('productModal');
-const modalImage = document.getElementById('modalImage');
-const modalTitle = document.getElementById('modalTitle');
-const modalDescription = document.getElementById('modalDescription');
-const modalPrice = document.getElementById('modalPrice');
-const modalPriceTable = document.getElementById('modalPriceTable');
-const modalPaymentInfo = document.getElementById('modalPaymentInfo');
-const closeModal = document.querySelector('.close');
+let produtosContainer;
+let modal;
+let modalImage;
+let modalTitle;
+let modalDescription;
+let modalPrice;
+let modalPriceTable;
+let modalPaymentInfo;
+let closeModal;
+
+// Função para inicializar elementos do DOM
+function inicializarElementos() {
+    console.log('Inicializando elementos do DOM...');
+    produtosContainer = document.getElementById('produtosContainer');
+    modal = document.getElementById('productModal');
+    modalImage = document.getElementById('modalImage');
+    modalTitle = document.getElementById('modalTitle');
+    modalDescription = document.getElementById('modalDescription');
+    modalPrice = document.getElementById('modalPrice');
+    modalPriceTable = document.getElementById('modalPriceTable');
+    modalPaymentInfo = document.getElementById('modalPaymentInfo');
+    closeModal = document.querySelector('.close');
+    
+    console.log('produtosContainer:', produtosContainer);
+    console.log('modal:', modal);
+}
 
 // Carregar produtos na página
 function carregarProdutos() {
+    console.log('Carregando produtos...');
+    console.log('produtosContainer:', produtosContainer);
+    console.log('produtos:', produtos);
+    
+    if (!produtosContainer) {
+        console.error('produtosContainer não encontrado!');
+        return;
+    }
+    
     produtosContainer.innerHTML = '';
     
-    produtos.forEach(produto => {
+    produtos.forEach((produto, index) => {
+        console.log(`Criando produto ${index + 1}:`, produto.titulo);
+        
         const produtoSection = document.createElement('section');
         produtoSection.className = 'produto-section';
         produtoSection.style.backgroundImage = `url(${produto.imagem})`;
@@ -647,7 +675,10 @@ function carregarProdutos() {
         `;
         
         produtosContainer.appendChild(produtoSection);
+        console.log(`Produto ${index + 1} criado com sucesso`);
     });
+    
+    console.log('Todos os produtos foram carregados');
 }
 
 // Abrir modal do produto
@@ -758,158 +789,32 @@ function fecharModal() {
     document.body.style.overflow = 'auto';
 }
 
-// Solicitar orçamento
-function solicitarOrcamento() {
-    fecharModal();
-    document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
-}
-
-// Smooth scroll para links internos
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Header scroll effect
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(255, 255, 255, 0.98)';
-        header.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
-    } else {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
-        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-    }
-});
-
-// Formulário de contato
-contatoForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Simular envio do formulário
-    const formData = new FormData(this);
-    const nome = this.querySelector('input[type="text"]').value;
-    const email = this.querySelector('input[type="email"]').value;
-    const telefone = this.querySelector('input[type="tel"]').value;
-    const mensagem = this.querySelector('textarea').value;
-    
-    // Aqui você pode adicionar a lógica para enviar os dados
-    alert(`Obrigado ${nome}! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve!`);
-    
-    // Limpar formulário
-    this.reset();
-});
-
-// Event listeners
-closeModal.addEventListener('click', fecharModal);
-window.addEventListener('click', function(e) {
-    if (e.target === modal) {
-        fecharModal();
-    }
-});
-
-// Filtro de produtos por categoria
-function filtrarPorCategoria(categoria) {
-    const produtosFiltrados = categoria === 'todos' 
-        ? produtos 
-        : produtos.filter(p => p.categoria === categoria);
-    
-    produtosGrid.innerHTML = '';
-    
-    produtosFiltrados.forEach(produto => {
-        const produtoCard = document.createElement('div');
-        produtoCard.className = 'produto-card';
-        produtoCard.innerHTML = `
-            <img src="${produto.imagem}" alt="${produto.titulo}" class="produto-image">
-            <h3 class="produto-title">${produto.titulo}</h3>
-            <p class="produto-description">${produto.descricao}</p>
-            <div class="produto-price">${produto.preco}</div>
-            <button class="btn-primary" onclick="abrirModal(${produto.id})">Ver Detalhes</button>
-        `;
-        produtosGrid.appendChild(produtoCard);
-    });
-}
-
-// Animação de contagem regressiva para o Natal
-function iniciarContagemRegressiva() {
-    const agora = new Date();
-    const natal = new Date(agora.getFullYear(), 11, 25); // 25 de dezembro
-    
-    if (agora.getMonth() === 11 && agora.getDate() > 25) {
-        natal.setFullYear(agora.getFullYear() + 1);
-    }
-    
-    const diferenca = natal - agora;
-    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-    
-    // Adicionar contagem regressiva ao hero se desejar
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent && dias > 0) {
-        const contador = document.createElement('div');
-        contador.className = 'contador-natal';
-        contador.innerHTML = `
-            <p>Faltam ${dias} dias para o Natal!</p>
-        `;
-        contador.style.cssText = `
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            margin-top: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            font-weight: 600;
-        `;
-        heroContent.appendChild(contador);
-    }
-}
-
 // Inicializar quando a página carregar
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM carregado, inicializando...');
+    inicializarElementos();
     carregarProdutos();
-    iniciarContagemRegressiva();
     
-    // Adicionar efeito de parallax suave
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const parallax = document.querySelector('.hero');
-        if (parallax) {
-            const speed = scrolled * 0.5;
-            parallax.style.transform = `translateY(${speed}px)`;
+    // Event listeners
+    if (closeModal) {
+        closeModal.addEventListener('click', fecharModal);
+    }
+    
+    window.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            fecharModal();
         }
     });
+    
+    console.log('Inicialização concluída');
 });
 
-// Efeito de digitação no título
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    }
-    type();
-}
-
-// Aplicar efeito de digitação ao título principal
+// Fallback para garantir que a função seja chamada
 window.addEventListener('load', function() {
-    const heroTitle = document.querySelector('.hero-content h1');
-    if (heroTitle) {
-        const originalText = heroTitle.textContent;
-        typeWriter(heroTitle, originalText, 150);
+    console.log('Página completamente carregada');
+    if (!produtosContainer || produtosContainer.children.length === 0) {
+        console.log('Tentando carregar produtos novamente...');
+        inicializarElementos();
+        carregarProdutos();
     }
 });
