@@ -128,138 +128,440 @@ const produtos = [
     {
         id: 6,
         imagem: 'imgs/6.jpg',
-        titulo: 'Boné Personalizado',
-        descricao: 'Boné de qualidade com bordado personalizado. Perfeito para uniformes corporativos.',
-        preco: 'R$ 32,00',
-        categoria: 'Vestuário'
+        titulo: 'CAIXA PANETONE REDONDA',
+        descricao: 'Caixa redonda personalizada para panetone. Disponível em dois tamanhos: PEQUENA (12x12x10 cm) e GRANDE (18x18x15 cm). Personalização completa com sua marca. Código: 36',
+        preco: 'A partir de R$ 3,50',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 8,50', total: 'R$ 1.700,00' },
+                '500': { unitario: 'R$ 5,00', total: 'R$ 2.500,00' },
+                '1000': { unitario: 'R$ 3,50', total: 'R$ 3.500,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 15,00', total: 'R$ 3.000,00' },
+                '500': { unitario: 'R$ 9,50', total: 'R$ 4.750,00' },
+                '1000': { unitario: 'R$ 7,50', total: 'R$ 7.500,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '12x12x10 cm',
+            grande: '18x18x15 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 7,
         imagem: 'imgs/7.jpg',
-        titulo: 'Agenda 2025 Personalizada',
-        descricao: 'Agenda executiva com capa personalizada. Inclui calendário completo e espaço para anotações.',
-        preco: 'R$ 55,00',
-        categoria: 'Papelaria'
+        titulo: 'CAIXA PANETONE QUADRADA',
+        descricao: 'Caixa quadrada personalizada para panetone. Disponível em dois tamanhos: PEQUENA (11x16,5x11 cm) e GRANDE (17x22x17 cm). Personalização completa com sua marca. Código: 36',
+        preco: 'A partir de R$ 3,44',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 7,84', total: 'R$ 1.568,00' },
+                '500': { unitario: 'R$ 4,51', total: 'R$ 2.255,00' },
+                '1000': { unitario: 'R$ 3,44', total: 'R$ 3.440,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 13,68', total: 'R$ 2.736,00' },
+                '500': { unitario: 'R$ 8,22', total: 'R$ 4.110,00' },
+                '1000': { unitario: 'R$ 6,41', total: 'R$ 6.410,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '11x16,5x11 cm',
+            grande: '17x22x17 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 8,
         imagem: 'imgs/8.jpg',
-        titulo: 'Mouse Pad Personalizado',
-        descricao: 'Mouse pad de alta qualidade com impressão personalizada. Superfície suave e antiderrapante.',
-        preco: 'R$ 18,00',
-        categoria: 'Tecnologia'
+        titulo: 'CAIXA PANETONE QUADRADA',
+        descricao: 'Caixa quadrada personalizada para panetone com tampa e alça. Disponível em dois tamanhos: PEQUENA (11,5x14x11,5 cm) e GRANDE (17x21,5x17 cm). Personalização completa com sua marca. Código: 37',
+        preco: 'A partir de R$ 5,65',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 13,74', total: 'R$ 2.748,00' },
+                '500': { unitario: 'R$ 7,54', total: 'R$ 3.770,00' },
+                '1000': { unitario: 'R$ 5,65', total: 'R$ 5.650,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 22,50', total: 'R$ 4.500,00' },
+                '500': { unitario: 'R$ 13,66', total: 'R$ 6.830,00' },
+                '1000': { unitario: 'R$ 10,90', total: 'R$ 10.900,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '11,5x14x11,5 cm',
+            grande: '17x21,5x17 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 9,
         imagem: 'imgs/9.jpg',
-        titulo: 'Pendrive Personalizado',
-        descricao: 'Pendrive de 16GB com impressão personalizada. Ideal para distribuir materiais promocionais.',
-        preco: 'R$ 42,00',
-        categoria: 'Tecnologia'
+        titulo: 'CAIXA QUADRADA C/ FITA',
+        descricao: 'Caixa quadrada personalizada para panetone com fita. Disponível em dois tamanhos: PEQUENA (9,5x11x9,5 cm) e GRANDE (15x17x15 cm). Personalização completa com sua marca. Código: 38',
+        preco: 'A partir de R$ 3,51',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 10,39', total: 'R$ 2.078,00' },
+                '500': { unitario: 'R$ 5,12', total: 'R$ 2.560,00' },
+                '1000': { unitario: 'R$ 3,51', total: 'R$ 3.510,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 14,22', total: 'R$ 2.844,00' },
+                '500': { unitario: 'R$ 8,34', total: 'R$ 4.170,00' },
+                '1000': { unitario: 'R$ 6,55', total: 'R$ 6.550,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '9,5x11x9,5 cm',
+            grande: '15x17x15 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 10,
         imagem: 'imgs/10.jpg',
-        titulo: 'Power Bank Personalizado',
-        descricao: 'Power bank de 10.000mAh com impressão personalizada. Carregamento rápido e seguro.',
-        preco: 'R$ 95,00',
-        categoria: 'Tecnologia'
+        titulo: 'CAIXA PANETONE BOLA + ALÇA',
+        descricao: 'Caixa em formato de bola personalizada para panetone com alça. Disponível em dois tamanhos: PEQUENA (14x14x14 cm) e GRANDE (21x21x21 cm). Personalização completa com sua marca. Código: 40',
+        preco: 'A partir de R$ 3,26',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 7,28', total: 'R$ 1.456,00' },
+                '500': { unitario: 'R$ 4,23', total: 'R$ 2.115,00' },
+                '1000': { unitario: 'R$ 3,26', total: 'R$ 3.260,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 13,97', total: 'R$ 2.794,00' },
+                '500': { unitario: 'R$ 8,74', total: 'R$ 4.370,00' },
+                '1000': { unitario: 'R$ 7,01', total: 'R$ 7.010,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '14x14x14 cm',
+            grande: '21x21x21 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
+    },
+    {
+        id: 11,
+        imagem: 'imgs/11.jpg',
+        titulo: 'CAIXA PANETONE BOLA + ALÇA',
+        descricao: 'Caixa em formato de bola personalizada para panetone com alça. Disponível em dois tamanhos: PEQUENA (14x14x14 cm) e GRANDE (21x21x21 cm). Personalização completa com sua marca. Código: 40',
+        preco: 'A partir de R$ 3,26',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 7,28', total: 'R$ 1.456,00' },
+                '500': { unitario: 'R$ 4,23', total: 'R$ 2.115,00' },
+                '1000': { unitario: 'R$ 3,26', total: 'R$ 3.260,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 13,97', total: 'R$ 2.794,00' },
+                '500': { unitario: 'R$ 8,74', total: 'R$ 4.370,00' },
+                '1000': { unitario: 'R$ 7,01', total: 'R$ 7.010,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '14x14x14 cm',
+            grande: '21x21x21 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 12,
         imagem: 'imgs/12.jpg',
-        titulo: 'Kit Higiene Personalizado',
-        descricao: 'Kit completo com sabonete, shampoo e condicionador em embalagens personalizadas.',
-        preco: 'R$ 38,00',
-        categoria: 'Higiene'
+        titulo: 'CAIXA PANETONE QUADRADA COM ALÇA',
+        descricao: 'Caixa quadrada personalizada para panetone com alça. Disponível em dois tamanhos: PEQUENA (10x12x10 cm) e GRANDE (15,5x20x15,5 cm). Personalização completa com sua marca. Código: 41',
+        preco: 'A partir de R$ 3,37',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 7,28', total: 'R$ 1.456,00' },
+                '500': { unitario: 'R$ 4,23', total: 'R$ 2.115,00' },
+                '1000': { unitario: 'R$ 3,37', total: 'R$ 3.370,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 13,63', total: 'R$ 2.726,00' },
+                '500': { unitario: 'R$ 8,44', total: 'R$ 4.220,00' },
+                '1000': { unitario: 'R$ 6,91', total: 'R$ 6.910,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '10x12x10 cm',
+            grande: '15,5x20x15,5 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 13,
         imagem: 'imgs/13.jpg',
-        titulo: 'Taca de Vinho Personalizada',
-        descricao: 'Taça de cristal com gravação personalizada. Elegante para eventos especiais.',
-        preco: 'R$ 65,00',
-        categoria: 'Decoração'
+        titulo: 'CAIXA ESTRELA OU ÁRVORE',
+        descricao: 'Caixa personalizada em formato de estrela ou árvore para panetone. Disponível em tamanho único: 13,8x5x12 cm. Personalização completa com sua marca. Código: 42',
+        preco: 'A partir de R$ 3,16',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 9,72', total: 'R$ 1.944,00' },
+                '500': { unitario: 'R$ 4,65', total: 'R$ 2.325,00' },
+                '1000': { unitario: 'R$ 3,16', total: 'R$ 3.160,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '13,8x5x12 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 14,
         imagem: 'imgs/14.jpg',
-        titulo: 'Vela Aromática Personalizada',
-        descricao: 'Vela aromática com embalagem personalizada. Perfeita para presentear no Natal.',
-        preco: 'R$ 22,00',
-        categoria: 'Decoração'
+        titulo: 'MINI CAIXA QUADRADA C/ ABA ESTRELA',
+        descricao: 'Mini caixa quadrada personalizada para panetone com aba em formato de estrela. Disponível em tamanho único: 7,5x7,5x5 cm. Personalização completa com sua marca. Código: 43',
+        preco: 'A partir de R$ 1,56',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 5,34', total: 'R$ 1.068,00' },
+                '500': { unitario: 'R$ 2,42', total: 'R$ 1.210,00' },
+                '1000': { unitario: 'R$ 1,56', total: 'R$ 1.560,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '7,5x7,5x5 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 15,
         imagem: 'imgs/15.jpg',
-        titulo: 'Kit Chá Personalizado',
-        descricao: 'Kit com chás especiais em embalagens personalizadas. Ideal para momentos de relaxamento.',
-        preco: 'R$ 28,00',
-        categoria: 'Alimentos'
+        titulo: 'CAIXA PANETONE GEOMÉTRICA',
+        descricao: 'Caixa com design geométrico personalizada para panetone. Disponível em dois tamanhos: PEQUENA (12x12x10 cm) e GRANDE (18x18x14 cm). Personalização completa com sua marca. Código: 44',
+        preco: 'A partir de R$ 3,70',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 9,20', total: 'R$ 1.840,00' },
+                '500': { unitario: 'R$ 5,50', total: 'R$ 2.750,00' },
+                '1000': { unitario: 'R$ 3,70', total: 'R$ 3.700,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 16,80', total: 'R$ 3.360,00' },
+                '500': { unitario: 'R$ 10,20', total: 'R$ 5.100,00' },
+                '1000': { unitario: 'R$ 8,10', total: 'R$ 8.100,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '12x12x10 cm',
+            grande: '18x18x14 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 16,
         imagem: 'imgs/16.jpg',
-        titulo: 'Chocolate Personalizado',
-        descricao: 'Chocolates finos em embalagens personalizadas. Delicioso presente natalino.',
-        preco: 'R$ 35,00',
-        categoria: 'Alimentos'
+        titulo: 'CAIXA PANETONE MINIMALISTA',
+        descricao: 'Caixa com design minimalista personalizada para panetone. Disponível em dois tamanhos: PEQUENA (11x11x9 cm) e GRANDE (17x17x13 cm). Personalização completa com sua marca. Código: 45',
+        preco: 'A partir de R$ 3,30',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 8,20', total: 'R$ 1.640,00' },
+                '500': { unitario: 'R$ 4,90', total: 'R$ 2.450,00' },
+                '1000': { unitario: 'R$ 3,30', total: 'R$ 3.300,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 15,00', total: 'R$ 3.000,00' },
+                '500': { unitario: 'R$ 9,10', total: 'R$ 4.550,00' },
+                '1000': { unitario: 'R$ 7,30', total: 'R$ 7.300,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '11x11x9 cm',
+            grande: '17x17x13 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 17,
         imagem: 'imgs/17.jpg',
-        titulo: 'Kit Café Gourmet',
-        descricao: 'Kit com café gourmet em embalagens personalizadas. Para os amantes de café.',
-        preco: 'R$ 48,00',
-        categoria: 'Alimentos'
+        titulo: 'CAIXA PANETONE LUXO',
+        descricao: 'Caixa de luxo personalizada para panetone. Disponível em dois tamanhos: PEQUENA (14x14x12 cm) e GRANDE (20x20x17 cm). Personalização completa com sua marca. Código: 46',
+        preco: 'A partir de R$ 4,50',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 11,20', total: 'R$ 2.240,00' },
+                '500': { unitario: 'R$ 6,60', total: 'R$ 3.300,00' },
+                '1000': { unitario: 'R$ 4,50', total: 'R$ 4.500,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 20,00', total: 'R$ 4.000,00' },
+                '500': { unitario: 'R$ 12,20', total: 'R$ 6.100,00' },
+                '1000': { unitario: 'R$ 9,80', total: 'R$ 9.800,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '14x14x12 cm',
+            grande: '20x20x17 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 18,
         imagem: 'imgs/18.jpg',
-        titulo: 'Porta-chaves Personalizado',
-        descricao: 'Porta-chaves de metal com impressão personalizada. Prático e durável.',
-        preco: 'R$ 15,00',
-        categoria: 'Acessórios'
+        titulo: 'CAIXA PANETONE PREMIUM',
+        descricao: 'Caixa premium personalizada para panetone. Disponível em dois tamanhos: PEQUENA (13x13x11 cm) e GRANDE (19x19x16 cm). Personalização completa com sua marca. Código: 47',
+        preco: 'A partir de R$ 4,80',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 12,00', total: 'R$ 2.400,00' },
+                '500': { unitario: 'R$ 7,10', total: 'R$ 3.550,00' },
+                '1000': { unitario: 'R$ 4,80', total: 'R$ 4.800,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 21,50', total: 'R$ 4.300,00' },
+                '500': { unitario: 'R$ 13,10', total: 'R$ 6.550,00' },
+                '1000': { unitario: 'R$ 10,50', total: 'R$ 10.500,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '13x13x11 cm',
+            grande: '19x19x16 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 19,
         imagem: 'imgs/19.jpg',
-        titulo: 'Relógio Personalizado',
-        descricao: 'Relógio de pulso com pulseira personalizada. Elegante e funcional.',
-        preco: 'R$ 120,00',
-        categoria: 'Acessórios'
+        titulo: 'CAIXA PANETONE EXCLUSIVA',
+        descricao: 'Caixa exclusiva personalizada para panetone. Disponível em dois tamanhos: PEQUENA (12x12x10 cm) e GRANDE (18x18x15 cm). Personalização completa com sua marca. Código: 48',
+        preco: 'A partir de R$ 5,20',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 13,00', total: 'R$ 2.600,00' },
+                '500': { unitario: 'R$ 7,70', total: 'R$ 3.850,00' },
+                '1000': { unitario: 'R$ 5,20', total: 'R$ 5.200,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 23,00', total: 'R$ 4.600,00' },
+                '500': { unitario: 'R$ 14,00', total: 'R$ 7.000,00' },
+                '1000': { unitario: 'R$ 11,20', total: 'R$ 11.200,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '12x12x10 cm',
+            grande: '18x18x15 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 20,
         imagem: 'imgs/20.jpg',
-        titulo: 'Óculos de Sol Personalizado',
-        descricao: 'Óculos de sol com case personalizado. Proteção UV e estilo.',
-        preco: 'R$ 75,00',
-        categoria: 'Acessórios'
+        titulo: 'CAIXA PANETONE DELUXE',
+        descricao: 'Caixa deluxe personalizada para panetone. Disponível em dois tamanhos: PEQUENA (14x14x12 cm) e GRANDE (20x20x17 cm). Personalização completa com sua marca. Código: 49',
+        preco: 'A partir de R$ 5,50',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 13,80', total: 'R$ 2.760,00' },
+                '500': { unitario: 'R$ 8,20', total: 'R$ 4.100,00' },
+                '1000': { unitario: 'R$ 5,50', total: 'R$ 5.500,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 24,50', total: 'R$ 4.900,00' },
+                '500': { unitario: 'R$ 14,90', total: 'R$ 7.450,00' },
+                '1000': { unitario: 'R$ 11,90', total: 'R$ 11.900,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '14x14x12 cm',
+            grande: '20x20x17 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 21,
         imagem: 'imgs/21.jpg',
-        titulo: 'Kit Beleza Personalizado',
-        descricao: 'Kit com produtos de beleza em embalagens personalizadas. Para cuidar da aparência.',
-        preco: 'R$ 68,00',
-        categoria: 'Beleza'
+        titulo: 'CAIXA PANETONE SUPREMA',
+        descricao: 'Caixa suprema personalizada para panetone. Disponível em dois tamanhos: PEQUENA (13x13x11 cm) e GRANDE (19x19x16 cm). Personalização completa com sua marca. Código: 50',
+        preco: 'A partir de R$ 5,80',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 14,50', total: 'R$ 2.900,00' },
+                '500': { unitario: 'R$ 8,60', total: 'R$ 4.300,00' },
+                '1000': { unitario: 'R$ 5,80', total: 'R$ 5.800,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 26,00', total: 'R$ 5.200,00' },
+                '500': { unitario: 'R$ 15,80', total: 'R$ 7.900,00' },
+                '1000': { unitario: 'R$ 12,60', total: 'R$ 12.600,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '13x13x11 cm',
+            grande: '19x19x16 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 22,
         imagem: 'imgs/22.jpg',
-        titulo: 'Perfume Personalizado',
-        descricao: 'Perfume em frasco personalizado. Fragrância exclusiva para sua marca.',
-        preco: 'R$ 150,00',
-        categoria: 'Beleza'
+        titulo: 'CAIXA PANETONE IMPERIAL',
+        descricao: 'Caixa imperial personalizada para panetone. Disponível em dois tamanhos: PEQUENA (15x15x13 cm) e GRANDE (21x21x18 cm). Personalização completa com sua marca. Código: 51',
+        preco: 'A partir de R$ 6,20',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 15,50', total: 'R$ 3.100,00' },
+                '500': { unitario: 'R$ 9,20', total: 'R$ 4.600,00' },
+                '1000': { unitario: 'R$ 6,20', total: 'R$ 6.200,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 28,00', total: 'R$ 5.600,00' },
+                '500': { unitario: 'R$ 17,00', total: 'R$ 8.500,00' },
+                '1000': { unitario: 'R$ 13,50', total: 'R$ 13.500,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '15x15x13 cm',
+            grande: '21x21x18 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     },
     {
         id: 23,
         imagem: 'imgs/23.jpg',
-        titulo: 'Kit Spa Personalizado',
-        descricao: 'Kit completo com produtos para spa em embalagens personalizadas. Relaxamento total.',
-        preco: 'R$ 85,00',
-        categoria: 'Beleza'
+        titulo: 'CAIXA PANETONE ROYAL',
+        descricao: 'Caixa royal personalizada para panetone. Disponível em dois tamanhos: PEQUENA (14x14x12 cm) e GRANDE (20x20x17 cm). Personalização completa com sua marca. Código: 52',
+        preco: 'A partir de R$ 6,50',
+        categoria: 'Embalagens',
+        precos: {
+            pequena: {
+                '200': { unitario: 'R$ 16,20', total: 'R$ 3.240,00' },
+                '500': { unitario: 'R$ 9,60', total: 'R$ 4.800,00' },
+                '1000': { unitario: 'R$ 6,50', total: 'R$ 6.500,00' }
+            },
+            grande: {
+                '200': { unitario: 'R$ 29,50', total: 'R$ 5.900,00' },
+                '500': { unitario: 'R$ 17,90', total: 'R$ 8.950,00' },
+                '1000': { unitario: 'R$ 14,20', total: 'R$ 14.200,00' }
+            }
+        },
+        dimensoes: {
+            pequena: '14x14x12 cm',
+            grande: '20x20x17 cm'
+        },
+        pagamento: 'PARCELE 5x SEM JUROS'
     }
 ];
 
@@ -284,13 +586,8 @@ function carregarProdutos() {
         // Verificar se é o produto da caixa de panetone para mostrar preços especiais
         let precoHTML = `<div class="produto-price">${produto.preco}</div>`;
         
-        if ((produto.id === 1 || produto.id === 2 || produto.id === 3 || produto.id === 4 || produto.id === 5) && produto.precos) {
-            let precoInicial;
-            if (produto.id === 1) precoInicial = 'R$ 3,96';
-            else if (produto.id === 2) precoInicial = 'R$ 3,33';
-            else if (produto.id === 3) precoInicial = 'R$ 2,75';
-            else if (produto.id === 4) precoInicial = 'R$ 5,03';
-            else if (produto.id === 5) precoInicial = 'R$ 2,75';
+        if (produto.precos) {
+            let precoInicial = produto.preco.replace('A partir de ', '');
             precoHTML = `
                 <div class="produto-price">
                     <div class="price-highlight">A partir de ${precoInicial}</div>
@@ -320,13 +617,13 @@ function abrirModal(produtoId) {
         modalDescription.textContent = produto.descricao;
         
         // Verificar se é o produto da caixa de panetone para mostrar tabela de preços
-        if ((produto.id === 1 || produto.id === 2 || produto.id === 3 || produto.id === 4 || produto.id === 5) && produto.precos) {
+        if (produto.precos) {
             let precosHTML = `
                 <div class="price-table">
                     <h4>Tabela de Preços</h4>
                     <div class="price-sections">
                         <div class="price-section">
-                            <h5>PEQUENA (${produto.dimensoes.pequena})</h5>
+                            <h5>${produto.dimensoes.grande ? 'PEQUENA' : ''} (${produto.dimensoes.pequena})</h5>
                             <table>
                                 <tr><th>Quantidade</th><th>Valor Unitário</th><th>Valor Total</th></tr>
                                 <tr><td>200 unidades</td><td>${produto.precos.pequena['200'].unitario}</td><td>${produto.precos.pequena['200'].total}</td></tr>
@@ -334,6 +631,11 @@ function abrirModal(produtoId) {
                                 <tr><td>1000 unidades</td><td>${produto.precos.pequena['1000'].unitario}</td><td>${produto.precos.pequena['1000'].total}</td></tr>
                             </table>
                         </div>
+            `;
+            
+            // Adicionar seção GRANDE apenas se existir
+            if (produto.precos.grande && produto.dimensoes.grande) {
+                precosHTML += `
                         <div class="price-section">
                             <h5>GRANDE (${produto.dimensoes.grande})</h5>
                             <table>
@@ -343,6 +645,10 @@ function abrirModal(produtoId) {
                                 <tr><td>1000 unidades</td><td>${produto.precos.grande['1000'].unitario}</td><td>${produto.precos.grande['1000'].total}</td></tr>
                             </table>
                         </div>
+                `;
+            }
+            
+            precosHTML += `
                     </div>
                     <div class="payment-info">${produto.pagamento}</div>
                 </div>
