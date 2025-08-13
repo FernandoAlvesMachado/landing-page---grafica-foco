@@ -32,6 +32,20 @@ body {
     justify-content: center;
     width: 28%;    
 }
+
+/* Responsividade para mobile */
+@media (max-width: 768px) {
+    .container-global {
+        width: 100%;
+        min-height: 100vh;
+        background-image: none;
+        background-attachment: scroll;
+    }
+    
+    .container-produtos {
+        width: 100%;
+    }
+}
 /* Container principal dos produtos */
 #produtosContainer {
     width: 100%;
