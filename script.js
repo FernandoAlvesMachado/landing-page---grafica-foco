@@ -566,44 +566,87 @@ const produtos = [
 ];
 
 // Elementos do DOM
-const produtosGrid = document.getElementById('produtosGrid');
-const modal = document.getElementById('produtoModal');
+const produtosContainer = document.getElementById('produtosContainer');
+const modal = document.getElementById('productModal');
 const modalImage = document.getElementById('modalImage');
 const modalTitle = document.getElementById('modalTitle');
 const modalDescription = document.getElementById('modalDescription');
 const modalPrice = document.getElementById('modalPrice');
+const modalPriceTable = document.getElementById('modalPriceTable');
+const modalPaymentInfo = document.getElementById('modalPaymentInfo');
 const closeModal = document.querySelector('.close');
-const contatoForm = document.getElementById('contatoForm');
 
 // Carregar produtos na página
 function carregarProdutos() {
-    produtosGrid.innerHTML = '';
+    produtosContainer.innerHTML = '';
     
     produtos.forEach(produto => {
-        const produtoCard = document.createElement('div');
-        produtoCard.className = 'produto-card';
+        const produtoSection = document.createElement('section');
+        produtoSection.className = 'produto-section';
+        produtoSection.style.backgroundImage = `url(${produto.imagem})`;
         
-        // Verificar se é o produto da caixa de panetone para mostrar preços especiais
-        let precoHTML = `<div class="produto-price">${produto.preco}</div>`;
+        // Extrair código do produto da descrição
+        const codigoMatch = produto.descricao.match(/Código: (\d+)/);
+        const codigo = codigoMatch ? codigoMatch[1] : '';
         
+        // Determinar dimensões para exibição
+        let dimensoesTexto = '';
+        if (produto.dimensoes.grande) {
+            dimensoesTexto = `PEQUENA: ${produto.dimensoes.pequena} | GRANDE: ${produto.dimensoes.grande}`;
+        } else {
+            dimensoesTexto = produto.dimensoes.pequena;
+        }
+        
+        // Criar tabela de preços para exibição
+        let priceTableHTML = '';
         if (produto.precos) {
-            let precoInicial = produto.preco.replace('A partir de ', '');
-            precoHTML = `
-                <div class="produto-price">
-                    <div class="price-highlight">A partir de ${precoInicial}</div>
-                    <div class="price-note">${produto.pagamento}</div>
+            priceTableHTML = `
+                <div class="price-table">
+                    <h3>Tabela de Preços</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Quantidade</th>
+                                <th>Valor Unitário</th>
+                                <th>Valor Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            
+            // Adicionar preços PEQUENA
+            if (produto.precos.pequena) {
+                for (const qtd in produto.precos.pequena) {
+                    const { unitario, total } = produto.precos.pequena[qtd];
+                    priceTableHTML += `
+                        <tr>
+                            <td>${qtd} unidades</td>
+                            <td>${unitario}</td>
+                            <td>${total}</td>
+                        </tr>
+                    `;
+                }
+            }
+            
+            priceTableHTML += `
+                        </tbody>
+                    </table>
                 </div>
             `;
         }
         
-        produtoCard.innerHTML = `
-            <img src="${produto.imagem}" alt="${produto.titulo}" class="produto-image">
-            <h3 class="produto-title">${produto.titulo}</h3>
-            <p class="produto-description">${produto.descricao}</p>
-            ${precoHTML}
-            <button class="btn-primary" onclick="abrirModal(${produto.id})">Ver Detalhes</button>
+        produtoSection.innerHTML = `
+            <div class="produto-info">
+                <h2>${produto.titulo}</h2>
+                <div class="codigo">Código: ${codigo}</div>
+                <div class="dimensoes">Dimensões: ${dimensoesTexto}</div>
+                ${priceTableHTML}
+                <div class="payment-info">${produto.pagamento}</div>
+                <button class="btn-details" onclick="abrirModal(${produto.id})">Ver Detalhes</button>
+            </div>
         `;
-        produtosGrid.appendChild(produtoCard);
+        
+        produtosContainer.appendChild(produtoSection);
     });
 }
 
@@ -616,33 +659,78 @@ function abrirModal(produtoId) {
         modalTitle.textContent = produto.titulo;
         modalDescription.textContent = produto.descricao;
         
+        // Clear previous content
+        modalPrice.innerHTML = '';
+        modalPriceTable.innerHTML = '';
+        modalPaymentInfo.innerHTML = '';
+
         // Verificar se é o produto da caixa de panetone para mostrar tabela de preços
         if (produto.precos) {
             let precosHTML = `
                 <div class="price-table">
                     <h4>Tabela de Preços</h4>
                     <div class="price-sections">
+            `;
+            
+            // Add PEQUENA section if available
+            if (produto.precos.pequena) {
+                precosHTML += `
                         <div class="price-section">
                             <h5>${produto.dimensoes.grande ? 'PEQUENA' : ''} (${produto.dimensoes.pequena})</h5>
                             <table>
-                                <tr><th>Quantidade</th><th>Valor Unitário</th><th>Valor Total</th></tr>
-                                <tr><td>200 unidades</td><td>${produto.precos.pequena['200'].unitario}</td><td>${produto.precos.pequena['200'].total}</td></tr>
-                                <tr><td>500 unidades</td><td>${produto.precos.pequena['500'].unitario}</td><td>${produto.precos.pequena['500'].total}</td></tr>
-                                <tr><td>1000 unidades</td><td>${produto.precos.pequena['1000'].unitario}</td><td>${produto.precos.pequena['1000'].total}</td></tr>
+                                <thead>
+                                    <tr>
+                                        <th>Qtd</th>
+                                        <th>Unit.</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                `;
+                for (const qtd in produto.precos.pequena) {
+                    const { unitario, total } = produto.precos.pequena[qtd];
+                    precosHTML += `
+                                    <tr>
+                                        <td>${qtd}</td>
+                                        <td>${unitario}</td>
+                                        <td>${total}</td>
+                                    </tr>
+                    `;
+                }
+                precosHTML += `
+                                </tbody>
                             </table>
                         </div>
-            `;
+                `;
+            }
             
-            // Adicionar seção GRANDE apenas se existir
+            // Add GRANDE section if available
             if (produto.precos.grande && produto.dimensoes.grande) {
                 precosHTML += `
                         <div class="price-section">
                             <h5>GRANDE (${produto.dimensoes.grande})</h5>
                             <table>
-                                <tr><th>Quantidade</th><th>Valor Unitário</th><th>Valor Total</th></tr>
-                                <tr><td>200 unidades</td><td>${produto.precos.grande['200'].unitario}</td><td>${produto.precos.grande['200'].total}</td></tr>
-                                <tr><td>500 unidades</td><td>${produto.precos.grande['500'].unitario}</td><td>${produto.precos.grande['500'].total}</td></tr>
-                                <tr><td>1000 unidades</td><td>${produto.precos.grande['1000'].unitario}</td><td>${produto.precos.grande['1000'].total}</td></tr>
+                                <thead>
+                                    <tr>
+                                        <th>Qtd</th>
+                                        <th>Unit.</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                `;
+                for (const qtd in produto.precos.grande) {
+                    const { unitario, total } = produto.precos.grande[qtd];
+                    precosHTML += `
+                                    <tr>
+                                        <td>${qtd}</td>
+                                        <td>${unitario}</td>
+                                        <td>${total}</td>
+                                    </tr>
+                    `;
+                }
+                precosHTML += `
+                                </tbody>
                             </table>
                         </div>
                 `;
@@ -653,7 +741,8 @@ function abrirModal(produtoId) {
                     <div class="payment-info">${produto.pagamento}</div>
                 </div>
             `;
-            modalPrice.innerHTML = precosHTML;
+            modalPriceTable.innerHTML = precosHTML;
+            modalPrice.textContent = ''; // Clear the general price if detailed table is shown
         } else {
             modalPrice.textContent = produto.preco;
         }
