@@ -1,48 +1,120 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Natal 2025 - Gráfica Foco</title>
+    <title>Gráfica Foco - Embalagens Personalizadas</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="container-global">
-        <div class="container-produtos">
-
-            <!-- Produtos como seções com imagem de fundo -->
-            <div id="produtosContainer">
-                <!-- Os produtos serão inseridos aqui dinamicamente -->
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-snowflake"></i> Gráfica Foco</h1>
             </div>
+            <nav class="nav">
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre Nós</a>
+                <a href="#clientes">Clientes</a>
+                <a href="#produtos">Produtos</a>
+            </nav>
+        </div>
+    </header>
 
-            <!-- Modal para detalhes do produto -->
-            <div id="productModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="fecharModal()">&times;</span>
-                    <div class="modal-body">
-                        <div class="modal-image">
-                            <img id="modalImage" src="" alt="">
-                        </div>
-                        <div class="modal-info">
-                            <h3 id="modalTitle"></h3>
-                            <p id="modalDescription"></p>
-                            <div id="modalPrice"></div>
-                            <div id="modalPriceTable"></div>
-                            <div id="modalPaymentInfo"></div>
-                            <button class="btn-primary" onclick="fecharModal()">Fechar</button>
-                        </div>
-                    </div>
+    <!-- Início - Capa -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>O Natal já começou na Gráfica foco!</h1>
+                <p>Vale com nossa equipe e garanta suas embalagens personalizadas.</p>
+                <a href="#produtos" class="btn-primary">Ver Produtos</a>
+            </div>
+            <div class="hero-decoration">
+                <div class="snowflake">❄</div>
+                <div class="snowflake">❅</div>
+                <div class="snowflake">❆</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre Nós</h2>
+            <div class="sobre-content">
+                <p>Com mais de 20 anos de atuação, a Gráfica Foco consolidou-se como referência nacional na produção de
+                    embalagens personalizadas e soluções em materiais gráficos. Ao longo dessa trajetória, conquistamos
+                    a confiança de empresas de diferentes portes e segmentos em todo o Brasil, oferecendo qualidade,
+                    inovação e excelência em cada projeto.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clientes - Carrossel -->
+    <section id="clientes" class="clientes">
+        <div class="container">
+            <h2 class="section-title">Nossos Clientes</h2>
+            <div class="carrossel-container">
+                <div class="carrossel" id="carrosselClientes">
+                    <!-- Imagens dos clientes serão inseridas via JavaScript -->
                 </div>
             </div>
-
-            <script src="script.js"></script>
         </div>
-    </div>
+    </section>
+
+    <!-- Produtos -->
+    <section id="produtos" class="produtos">
+        <div class="container">
+            <h2 class="section-title">Nossos Produtos</h2>
+            <div class="produtos-grid" id="produtosGrid">
+                <!-- Produtos serão inseridos via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <h3><i class="fas fa-snowflake"></i> Gráfica Foco</h3>
+                        <p>Qualidade e criatividade em cada projeto</p>
+                    </div>
+                    <div class="footer-details">
+                        <p>🛍 Embalagens personalizadas</p>
+                        <p>🇧🇷 De Goiânia para todo Brasil</p>
+                        <p>📆 Seg a Sex: 8h - 18h</p>
+                        <p>☎️ (62) 3285.2793 | 99471.9124</p>
+                    </div>
+                    <div class="footer-address">
+                        <p>Av. do Contorno Sul, nº 1069 - Pq. Anhanguera, Goiânia, Brazil</p>
+                    </div>
+                    <div class="footer-map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.008105515608!2d-49.30458708847248!3d-16.726447383985782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef1298d3f8729%3A0x28526fdc137795bf!2sGrafica%20Foco!5e0!3m2!1spt-BR!2sbr!4v1756233900702!5m2!1spt-BR!2sbr"
+                            width="100%" height="200" style="border:0; border-radius: 10px;" allowfullscreen=""
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5562994719124" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gráfica Foco. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
