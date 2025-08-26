@@ -211,6 +211,16 @@ body {
     position: relative;
 }
 
+/* Título específico para seção Sobre Nós */
+.sobre .section-title {
+    color: #333;
+}
+
+/* Título específico para seção Clientes */
+.clientes .section-title {
+    color: #333;
+}
+
 .section-title::after {
     content: '';
     position: absolute;
@@ -221,6 +231,86 @@ body {
     height: 4px;
     background: linear-gradient(45deg, #d63031, #e17055);
     border-radius: 2px;
+}
+
+/* Seção Sobre Nós */
+.sobre {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.sobre-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sobre-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #495057;
+    margin-top: 2rem;
+}
+
+/* Seção Clientes - Carrossel */
+.clientes {
+    padding: 5rem 0;
+    background: white;
+    overflow: hidden;
+}
+
+.carrossel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem 0;
+}
+
+.carrossel {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    animation: scroll 30s linear infinite;
+}
+
+.cliente-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+    height: 100px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.cliente-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cliente-logo {
+    max-width: 120px;
+    max-height: 80px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+.cliente-item:hover .cliente-logo {
+    filter: grayscale(0%);
+}
+
+/* Animação do carrossel infinito */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 /* Produtos Section */
@@ -663,6 +753,25 @@ body {
         text-align: center;
     }
     
+    .carrossel {
+        gap: 2rem;
+    }
+    
+    .cliente-item {
+        min-width: 120px;
+        height: 80px;
+    }
+    
+    .cliente-logo {
+        max-width: 100px;
+        max-height: 60px;
+    }
+    
+    .sobre-content p {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+    
     .modal-body {
         grid-template-columns: 1fr;
     }
@@ -719,6 +828,25 @@ body {
     
     .destaques-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .carrossel {
+        gap: 1.5rem;
+    }
+    
+    .cliente-item {
+        min-width: 100px;
+        height: 70px;
+    }
+    
+    .cliente-logo {
+        max-width: 80px;
+        max-height: 50px;
+    }
+    
+    .sobre-content p {
+        font-size: 1rem;
+        padding: 0 0.5rem;
     }
     
     .price-section table {
